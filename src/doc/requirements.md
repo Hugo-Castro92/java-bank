@@ -4,7 +4,7 @@
 
 The Bank can have any number of customers and each customer can have multiple checking and savings accounts.
 Account balance cannot be negative, transactions should fail if not enough money is available.
-The Savings Account has a minimum balance should be 100, no debits or transfers can be made from this account if inactive.
+The org.academiadecodigo.javabank.domain.Savings Account has a minimum balance should be 100, no debits or transfers can be made from this account if inactive.
 The Customer can deposit or withdraw from the checking account or transfer money between checking and savings account
 The Customer balance equals the sum of the balances of all the customer accounts.
 The Bank balance equals the sum of the balances of all customers.
@@ -13,9 +13,9 @@ The Bank balance equals the sum of the balances of all customers.
 1. Bank should be able to contain any number of Customers
 1. Customers should be able to have multiple checking accounts
 1. Customers should be able to have multiple savings accounts
-1. Checking account balance can not be negative
-1. Savings account balance can not be lower than 100
-1. Savings account requires transfer of at least minimum balance to become active
+1. org.academiadecodigo.javabank.domain.Checking account balance can not be negative
+1. org.academiadecodigo.javabank.domain.Savings account balance can not be lower than 100
+1. org.academiadecodigo.javabank.domain.Savings account requires transfer of at least minimum balance to become active
 1. Customer should be able to deposit money in any of its checking accounts.
 1. Customer should be able to withdraw money from any of its checking accounts, provided it has sufficient funds
 1. Customer should be able to transfer money between any of its accounts
@@ -24,7 +24,7 @@ The Bank balance equals the sum of the balances of all customers.
 1. Bank should be able to check the combined balance of all customers
 
 ## Identifying Objects & Responsibilities
-Bank, Customer, Checking, Savings, Account, Money
+Bank, Customer, org.academiadecodigo.javabank.domain.Checking, org.academiadecodigo.javabank.domain.Savings, Account, Money
 
 ### Bank
 Represents the Banking service, contains costumers

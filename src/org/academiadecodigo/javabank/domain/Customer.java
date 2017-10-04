@@ -29,14 +29,20 @@ public class Customer {
     }
 
     public void deposit(int id, double amount) {
-        accounts.get(id).credit(amount);
+        Account account = accounts.get(id);
+
+        if(accounts.get(id) instanceof Savings){
+            return;
+        }
+
+        account.credit(amount);
     }
 
     public void withdraw(int id, double amount) {
 
         Account account = accounts.get(id);
 
-        if (account.getAccountType() == AccountType.SAVINGS) {
+        if (accounts.get(id) instanceof Savings) {
             return;
         }
 
@@ -55,7 +61,7 @@ public class Customer {
         }
 
         // if src account is savings, we need to keep a minimum balance
-        if (srcAccount.getAccountType() == AccountType.SAVINGS &&
+        if (accounts.get(srcId) instanceof Savings &&
                 srcAccount.getBalance() < MIN_SAVINGS_BALANCE + amount) {
             return;
         }
