@@ -1,7 +1,6 @@
 package org.academiadecodigo.javabank.domain;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Bank {
 
