@@ -9,8 +9,14 @@ import java.util.Map;
 
 public class Customer {
 
+
+
+
+    private static int numberCustomers = 0;
     private AccountManager accountManager;
     private Map<Integer, Account> accounts = new HashMap<>();
+
+
 
     public void setAccountManager(AccountManager accountManager) {
         this.accountManager = accountManager;
@@ -35,6 +41,14 @@ public class Customer {
         }
 
         return balance;
+    }
+
+    public static int getNumberCustomers() {
+        return numberCustomers;
+    }
+
+    public static void setNumberCustomers(int numberCustomers) {
+        Customer.numberCustomers = numberCustomers;
     }
 
 }

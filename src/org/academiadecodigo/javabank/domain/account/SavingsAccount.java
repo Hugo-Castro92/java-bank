@@ -13,13 +13,4 @@ public class SavingsAccount extends Account {
         return AccountType.SAVINGS;
     }
 
-    @Override
-    public void debit(double amount) {
-
-        if (getBalance() - amount < MIN_BALANCE) {
-            return;
-        }
-
-        super.debit(amount);
-    }
 }

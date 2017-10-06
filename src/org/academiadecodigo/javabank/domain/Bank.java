@@ -1,22 +1,28 @@
 package org.academiadecodigo.javabank.domain;
 
+
 import org.academiadecodigo.javabank.managers.AccountManager;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Bank {
 
+
     private AccountManager accountManager;
-    private Set<Customer> customers = new HashSet<>();
+    private Map<Integer, Customer> customers = new HashMap<>();
+    private int numberCustomers;
 
     public Bank(AccountManager accountManager) {
         this.accountManager = accountManager;
     }
 
     public void addCustomer(Customer customer) {
-        customers.add(customer);
+        numberCustomers ++;
+        customers.put(numberCustomers, customer);
         customer.setAccountManager(accountManager);
+        customer.setNumberCustomers(numberCustomers);
+
     }
 
     public double getBalance() {
@@ -24,6 +30,7 @@ public class Bank {
         double balance = 0;
 
         for (Customer customer : customers) {
+            
             balance += customer.getBalance();
         }
 

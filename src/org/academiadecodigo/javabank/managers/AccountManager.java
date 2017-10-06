@@ -1,20 +1,18 @@
 package org.academiadecodigo.javabank.managers;
 
-import org.academiadecodigo.javabank.domain.account.Account;
-import org.academiadecodigo.javabank.domain.account.AccountType;
-import org.academiadecodigo.javabank.domain.account.CheckingAccount;
-import org.academiadecodigo.javabank.domain.account.SavingsAccount;
-
+import org.academiadecodigo.javabank.domain.account.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AccountManager {
 
     private static int numberAccounts = 0;
+    protected AccountFactory accountFactory;
     Map<Integer, Account> accountMap;
 
     public AccountManager() {
         this.accountMap = new HashMap<>();
+        accountFactory = new AccountFactory();
     }
 
     public Account openAccount(AccountType accountType) {
@@ -22,13 +20,11 @@ public class AccountManager {
         Account newAccount;
 
         numberAccounts++;
-        if (accountType == AccountType.CHECKING) {
-            newAccount = new CheckingAccount(numberAccounts);
-        } else {
-            newAccount = new SavingsAccount(numberAccounts);
-        }
+
+        newAccount = accountFactory.openAccount(accountType, numberAccounts);
 
         accountMap.put(newAccount.getId(), newAccount);
+
         return newAccount;
 
     }
@@ -52,6 +48,15 @@ public class AccountManager {
 
         Account srcAccount = accountMap.get(srcId);
         Account dstAccount = accountMap.get(dstId);
+
+
+ //       if(srcAccount.canDebit(amount) && dstAccount.canCredit(amount)){
+
+   //         srcAccount.debit(amount);
+     //       dstAccount.credit(amount);
+
+
+
 
         // make sure src account has sufficient funds
         if (srcAccount.getBalance() < amount) {
