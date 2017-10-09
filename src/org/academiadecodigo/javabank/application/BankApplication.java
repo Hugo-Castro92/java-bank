@@ -67,6 +67,7 @@ public class BankApplication {
 
     }
 
+
     private Map<Integer, Operation> buildOperationsMap() {
 
         Map<Integer, Operation> map = new HashMap<>();
