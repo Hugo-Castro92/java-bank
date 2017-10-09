@@ -37,7 +37,5 @@ public class App {
         bankApplication.start();
 
 
-        controllerLogIn = new ControllerLogIn(bank);
-        viewLogIn.show() = new ViewLogIn(bank, prompt);
     }
 }
