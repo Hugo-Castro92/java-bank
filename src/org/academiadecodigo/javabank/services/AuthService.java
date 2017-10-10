@@ -5,6 +5,7 @@ import org.academiadecodigo.javabank.model.Customer;
 public class AuthService {
 
     private CustomerService customerService;
+    private int
 
     public boolean authCustomer(int id, CustomerService customerService)
     {
@@ -18,7 +19,7 @@ public class AuthService {
         this.customerService = customerService;
     }
 
-    
+
 
 
 }
