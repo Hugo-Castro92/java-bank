@@ -29,7 +29,7 @@ public class CustomerService {
         double balance = 0;
 
         for (Customer customer : customers.values()) {
-            balance += customer.getBalance();
+            balance += customer.getBalance();  //accountService.getBalance?
         }
 
         return balance;
@@ -43,11 +43,5 @@ public class CustomerService {
         return accountService;
     }
 
-    public Customer getLoginCustomer() {
-        return customers.get(loginCustomer);
-    }
-
-    public void setLoginCustomer(int id) {
-        this.loginCustomer = id;
-    }
+    public Customer getCustomer(int id) {return customers.get(id);}
 }

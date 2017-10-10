@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class MainController extends AbstractController {
 
-    private Map<Integer, Controller> controllerMap;
     private CustomerService customerService;
+    private Map<Integer, Controller> controllerMap;
 
     public void setControllerMap(Map<Integer, Controller> controllerMap) {
         this.controllerMap = controllerMap;
@@ -28,5 +28,13 @@ public class MainController extends AbstractController {
         controllerMap.get(option).init();
         init();
 
+    }
+
+    public String getLoginCustomerName() {
+        return customerService.getCustomer(authService.getLoginCustomer()).getName();
+    }
+
+    public void setCustomerService(CustomerService customerService) {
+        this.customerService = customerService;
     }
 }

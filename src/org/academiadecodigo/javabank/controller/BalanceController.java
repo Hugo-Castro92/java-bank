@@ -11,22 +11,16 @@ public class BalanceController extends AbstractController {
 
 
     private CustomerService customerService;
-    private Customer customer;
-    private Account account;
 
-    public String getCustomerName(){
-        return customer.getName();
+    public Customer gotLoginCustomer() {
+        return customerService.getCustomer(authenticationService.getLoginCustomer());
     }
 
-    public Set<Account> getCustomerAccounts(){
-       return customer.getAccounts();
+    public void setCustomerService(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
-    public double getAccountBalance(){
-        return customerService.getBalance();
+    public double getLoginCustomerBalance() {
+        return customerService.getAccountService().getBalance(customerService.getCustomer(authenticationService.getLoginCustomer()).getAccountIds());
     }
-
-    public int getAccountId(){return account.getId(); }
-
-    public AccountType getType(){return account.getAccountType();}
 }

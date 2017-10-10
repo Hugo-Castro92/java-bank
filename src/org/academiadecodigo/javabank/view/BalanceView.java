@@ -18,20 +18,21 @@ public class BalanceView implements View {
         showBalance();
     }
 
+    public void setBalanceController(BalanceController balanceController) {
+        this.balanceController = balanceController;
+    }
+
     private void showBalance() {
 
+        Customer customer = balanceController.gotLoginCustomer();
 
-        System.out.println("\n" + balanceController.getCustomerName() + Messages.VIEW_BALANCE_MESSAGE + "\n");
+        System.out.println("\n" + customer.getName() + Messages.VIEW_BALANCE_MESSAGE + "\n");
 
+        Set<Account> accounts = customer.getAccounts();
+        for (Account account : accounts) {
+            System.out.println(account.getId() + "\t" + account.getAccountType() + "\t" + df.format(account.getBalance()));
+        }
 
-        Set<Account> balanceControllers = balanceController.getCustomerAccounts();
-
-            for( balanceController : balanceControllers) {
-
-                System.out.println(String.format(balanceController.getAccountId() + "\t" + balanceController.getType() + "\t" + df.format(balanceController.getAccountBalance())));
-
-            }
-
-        System.out.println("\n\n" + Messages.VIEW_BALANCE_TOTAL_MESSAGE + df.format(balanceController.getAccountBalance()));
+        System.out.println("\n\n" + Messages.VIEW_BALANCE_TOTAL_MESSAGE + df.format(balanceController.getLoginCustomerBalance()));
     }
 }

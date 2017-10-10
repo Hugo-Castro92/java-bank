@@ -1,11 +1,13 @@
 package org.academiadecodigo.javabank;
 
 import org.academiadecodigo.javabank.controller.LoginController;
+import org.academiadecodigo.javabank.services.AuthService;
 import org.academiadecodigo.javabank.services.CustomerService;
 
 public class App {
 
     private CustomerService customerService;
+    private AuthService authService;
 
     public static void main(String[] args) {
 
